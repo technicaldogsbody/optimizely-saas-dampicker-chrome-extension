@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This extension serves as an interim Asset Picker until the full integration becomes available.
+This Chrome browser extension serves as an interim Asset Picker until the full integration becomes available.
 
 ## Field naming convention
 
