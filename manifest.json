@@ -1,40 +1,21 @@
 {
-  "name": "Fresh Chrome Extension boilerplate",
-  "description": "Fully functional, useful bare minimum Google Chrome extension boilerplate [Manifest V3].",
-  "homepage_url": "https://github.com/llagerlof/fresh-chrome-extension",
-  "version": "3.1.0",
+  "name": "Optimizely SaaS CMS DAM Picker (interim)",
+  "description": "Interim integration for a Optimizely DAM picker that works with Optimizely SaaS CMS",
+  "homepage_url": "https://github.com/technicaldogsbody/optimizely-saas-dampicker-chrome-extension",
+  "version": "1.0.0",
   "manifest_version": 3,
-  "action": {
-    "default_title": "Fresh Chrome Extension boilerplate 3.1.0",
-    "default_popup": "src/popup/popup.html",
-    "default_icon": {
-      "16": "assets/icons/icon16.png",
-      "32": "assets/icons/icon32.png",
-      "64": "assets/icons/icon64.png",
-      "128": "assets/icons/icon128.png"
-    }
-  },
   "icons": {
-    "16": "assets/icons/icon16.png",
-    "32": "assets/icons/icon32.png",
-    "64": "assets/icons/icon64.png",
-    "128": "assets/icons/icon128.png"
+    "16": "assets/icons/image_16.png",
+    "32": "assets/icons/image_32.png",
+    "64": "assets/icons/image_64.png",
+    "128": "assets/icons/image_128.png"
   },
   "content_scripts": [
-    {
-      "run_at" : "document_start",
-      "js": ["src/content/before.js"],
-      "matches": [
-        "https://*/*",
-        "http://*/*"
-      ]
-    },
     {
       "run_at" : "document_idle",
       "js": ["src/content/after.js"],
       "matches": [
-        "https://*/*",
-        "http://*/*"
+        "https://*/ui/cms/*"
       ]
     }
   ],
@@ -43,7 +24,7 @@
     "scripting"
   ],
   "host_permissions": [
-    "https://*/*",
-    "http://*/*"
+    "https://*/ui/cms/*"
   ]
 }
+//dam_fid_123456_ImageUrl
