@@ -5,7 +5,7 @@
   const targetNode = document.body;
   const config = { attributes: true, childList: true, subtree: true };
 
-  const callback = (mutationList, observer) => {
+  const callback = () => {
     var folderFields = document.querySelectorAll("[name^=dam_fid_]");
     folderFields.forEach(action);
     var fields = document.querySelectorAll("[name^=dam_root_]");
@@ -17,6 +17,7 @@
     field.readonly = true;
     field.onclick = () => {
       alert("Field clicked!");
+      field.blur();
     }
   }
 
