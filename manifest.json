@@ -15,7 +15,7 @@
       "run_at" : "document_idle",
       "js": ["src/content/after.js"],
       "matches": [
-        "https://*/ui/cms/*"
+        "https://*.cms.optimizely.com/ui/cms/*"
       ]
     }
   ],
@@ -24,7 +24,6 @@
     "scripting"
   ],
   "host_permissions": [
-    "https://*/ui/cms/*"
+    "https://*.cms.optimizely.com/ui/cms/*"
   ]
 }
-//dam_fid_123456_ImageUrl

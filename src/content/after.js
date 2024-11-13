@@ -14,48 +14,42 @@
 
   const action = (field) => {
     field.style.cursor = 'pointer';
-    field.readonly = true;
-    field.onclick = () => {      
+    field.onclick = () => {
       var nameParts = field.name.split('_');
       var folderId = "";
-      if(nameParts[1] == "fid")
-      {
-          folderId = "&parentFolderGuid=" + nameParts[2]
+      if (nameParts[1] == "fid") {
+        folderId = "&parentFolderGuid=" + nameParts[2]
       }
       openWindow(field, folderId);
     }
   }
 
-  function handleChoose(event, targetElement) {
-  
-    if (event && event.data && event.data[0] != null && event.data[0].url != null && targetElement != null)
-    {
-        targetElement.value = event.data[0].url;
-        targetElement.blur();
+  function handleChoose(event, field) {
+    console.log(field);
+    if (event && event.data && event.data[0] != null && event.data[0].url != null && field != null) {
+      field.value = event.data[0].url;
+      field.blur();
     }
 
-}
+  }
 
-function openWindow(e, folderId) {
-
-    targetElement = e.target;
+  function openWindow(targetElement, folderId) {
 
     const options = {
-        assetTypes: ['image'],
-        multiSelect: false
+      assetTypes: ['image'],
+      multiSelect: false
     };
 
     const encodedOptions = window.btoa(JSON.stringify(options));
     var url = `https://cmp.optimizely.com/cloud/library-picker?pickerOptions=${encodedOptions}`;
-    
-    if(folderId)
-    {
+
+    if (folderId) {
       url = url + folderId;
     }
-
+    console.log(targetElement);
     window.open(url, 'Library', 'popup');
     window.addEventListener("message", (e) => handleChoose(e, targetElement), false);
-}
+  }
 
   const observer = new MutationObserver(callback);
 
