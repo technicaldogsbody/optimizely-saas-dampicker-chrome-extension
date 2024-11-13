@@ -15,23 +15,47 @@
   const action = (field) => {
     field.style.cursor = 'pointer';
     field.readonly = true;
-    field.onclick = () => {
-      alert("Field clicked!");
-      
+    field.onclick = () => {      
       var nameParts = field.name.split('_');
       var folderId = "";
       if(nameParts[1] == "fid")
       {
-          folderId = nameParts[2]
+          folderId = "&parentFolderGuid=" + nameParts[2]
       }
-
-      alert("Folder ID = " + folderId);
-
-      //Popup here
-
-      field.blur();
+      openWindow(field, folderId);
     }
   }
+
+  function handleChoose(event, targetElement) {
+  
+    if (event && event.data && event.data[0] != null && event.data[0].url != null && targetElement != null)
+    {
+        targetElement.value = event.data[0].url;
+        targetElement.blur();
+    }
+
+}
+
+function openWindow(e, folderId) {
+
+    targetElement = e.target;
+
+    const options = {
+        assetTypes: ['image'],
+        multiSelect: false
+    };
+
+    const encodedOptions = window.btoa(JSON.stringify(options));
+    var url = `https://cmp.optimizely.com/cloud/library-picker?pickerOptions=${encodedOptions}`;
+    
+    if(folderId)
+    {
+      url = url + folderId;
+    }
+
+    window.open(url, 'Library', 'popup');
+    window.addEventListener("message", (e) => handleChoose(e, targetElement), false);
+}
 
   const observer = new MutationObserver(callback);
 
