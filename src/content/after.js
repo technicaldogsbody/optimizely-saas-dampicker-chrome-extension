@@ -17,6 +17,18 @@
     field.readonly = true;
     field.onclick = () => {
       alert("Field clicked!");
+      
+      var nameParts = field.name.split('_');
+      var folderId = "";
+      if(nameParts[1] == "fid")
+      {
+          folderId = nameParts[2]
+      }
+
+      alert("Folder ID = " + folderId);
+
+      //Popup here
+
       field.blur();
     }
   }
