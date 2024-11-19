@@ -18,12 +18,5 @@
         "https://*.cms.optimizely.com/ui/cms/*"
       ]
     }
-  ],
-  "permissions": [
-    "tabs",
-    "scripting"
-  ],
-  "host_permissions": [
-    "https://*.cms.optimizely.com/ui/cms/*"
   ]
 }

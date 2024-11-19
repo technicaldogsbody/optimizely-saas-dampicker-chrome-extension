@@ -1,7 +1,6 @@
 // this code will be executed after page load
 (function () {
-  console.log('Script "after.js" executed after page load.');
-
+  
   const targetNode = document.body;
   const config = { attributes: true, childList: true, subtree: true };
 
@@ -25,12 +24,10 @@
   }
 
   function handleChoose(event, field) {
-    console.log(field);
     if (event && event.data && event.data[0] != null && event.data[0].url != null && field != null) {
       field.value = event.data[0].url;
       field.blur();
     }
-
   }
 
   function openWindow(targetElement, folderId) {
@@ -46,7 +43,7 @@
     if (folderId) {
       url = url + folderId;
     }
-    console.log(targetElement);
+
     window.open(url, 'Library', 'popup');
     window.addEventListener("message", (e) => handleChoose(e, targetElement), false);
   }
