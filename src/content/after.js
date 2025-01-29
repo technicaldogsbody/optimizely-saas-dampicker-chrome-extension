@@ -5,9 +5,9 @@
   const config = { attributes: true, childList: true, subtree: true };
 
   const callback = () => {
-    var folderFields = document.querySelectorAll("[name^=dam_fid_]");
+    var folderFields = document.querySelectorAll("[name*=dam_fid_]");
     folderFields.forEach(action);
-    var fields = document.querySelectorAll("[name^=dam_root_]");
+    var fields = document.querySelectorAll("[name*=dam_root_]");
     fields.forEach(action);
   };
 
